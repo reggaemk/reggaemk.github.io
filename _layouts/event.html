@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<section id="content" class="full-page event">
+    <img src="/assets/img/events/{{ page.image }}" alt="{{ page.title }}" width="150"/>
+
+    <div class="left">
+        <h1>{{ page.title }}</h1>
+
+        <ul class="social">
+            {% if page.facebook %}
+                <li><a href="{{ page.facebook }}" class="facebook">Facebook</a></li>
+            {% endif %}
+            {% if page.web %}
+                <li><a href="{{ page.web }}" class="official-site">Официјален сајт</a></li>
+            {% endif %}
+        </ul>
+
+        <p class="location">{{ page.location }}</p>
+        <time class="date" datetime="{{ page.start_date }}">
+            {{ page.start_date | date_to_long_string }}
+            {% if page.start_date != page.end_date %}&thinsp;&ndash;&thinsp;{{ page.end_date | date_to_long_string }}{% endif %}
+        </time>
+
+        <ul class="info clearfix-left">
+            <li><span class="label">Почеток</span> {{ page.start_time }}<span class="grey">&thinsp;&ndash;&thinsp;</span></li>
+            <li><span class="label">Крај</span> {{ page.end_time }}</li>
+            <li class="fee">
+                <span class="label">Влез</span>
+                {% if page.entry == 0 %}Бесплатен{% else %}{{ page.entry }}{% endif %}
+            </li>
+        </ul>
+
+        <div class="text">
+            {{ content }}
+        </div>
+    </div>
+</section>

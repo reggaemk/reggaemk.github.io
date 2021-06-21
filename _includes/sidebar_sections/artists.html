@@ -1,0 +1,15 @@
+<section id="artists-module" class="module">
+    <h3><a href="/artisti">Артисти</a></h3>
+    <ul class="artists">
+        {% assign artists = site.artists | sample: 3 %}
+        {% for artist in artists %}
+            <li>
+                <a href="{{ artist.url }}">
+                    <img src="/assets/img/artists/{{ artist.image }}" width="44" height="44"/>
+                    <h4>{{ artist.title }}</h4>
+                    <p class="genres">{{ artist.genres }}</p>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</section>

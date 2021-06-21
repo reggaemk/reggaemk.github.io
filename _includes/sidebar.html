@@ -1,0 +1,16 @@
+<aside id="sidebar">
+    {% include sidebar_sections/social.html %}
+
+    {% if page.layout == "post" %}
+        {% include sidebar_sections/categories.html %}
+        {% include sidebar_sections/latest_posts.html %}
+    {% elsif page.url == "/" or page.layout == "category" %}
+        {% include sidebar_sections/categories.html %}
+    {% else %}
+        {% include sidebar_sections/latest_posts.html %}
+    {% endif %}
+
+    {% include sidebar_sections/upcoming_events.html %}
+    {% include sidebar_sections/video.html %}
+    {% include sidebar_sections/artists.html %}
+</aside>

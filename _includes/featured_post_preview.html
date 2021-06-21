@@ -1,0 +1,19 @@
+<article class="featured full-post post">
+    <span class="newest">Најново</span>
+    <a href="{{ post.url }}" class="block">
+        <h2>{{ post.title }}</h2>
+        <img src="/assets/img/posts/{{ post.image }}" width="700" height="300" alt="Раѓањето на Јамајка" class="post-img"/>
+    </a>
+    <p class="info">
+        {% include formatted_date.html date=post.date class="date-published" additional_attributes="pubdate" %}
+        <span class="label">Напишано од</span>
+        <span class="author">{{ post.author }}</span>
+
+        {% assign category = site.categories | where: "title", post.category | first %}
+        <a href="{{ category.url }}" class="category"><b class="arrow"></b>{{ category.title }}</a>
+    </p>
+    <div class="text">
+        <p>{{ post.excerpt }}</p>
+    </div>
+    <a href="{{ post.url }}" class="read-more clearfix">Прочитај повеќе<b class="arrow"></b></a>
+</article>

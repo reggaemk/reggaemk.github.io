@@ -1,0 +1,15 @@
+<section id="articles-module" class="module">
+    <h3><a href="#">Последни текстови</a></h3>
+
+    <ul class="articles-list">
+        {% for post in site.posts limit:4 %}
+            <li>
+                <a href="{{ post.url }}">
+                    <h4>{{ post.title }}</h4>
+                    {% include formatted_date.html date=post.date %}
+                    <span class="category"><b class="arrow"></b>{{ post.category }}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</section>

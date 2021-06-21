@@ -1,0 +1,42 @@
+---
+permalink: /prezemanja
+layout: default
+title: "Преземања"
+---
+
+<section id="content" class="split-content">
+
+    <section class="first-col clearfix">
+        <h1 class="heading">Синглови</h1>
+
+        <ul id="singles">
+            {% assign singles = site.downloads | where: "type", "single" %}
+
+            {% for single in singles %}
+                <li class="item">
+                    <h2><strong>{{ single.artist}}</strong> - {{ single.title}}</a></h2>
+                    <p class="info">
+                        {% include formatted_date.html class="date" date=single.date %}
+                        {{ single.duration}}
+                        {{ single.size }}
+                    </p>
+
+                    <p id="pesna1" class="noflash">За плеерот ви треба <a href="#">Adobe Flash</a>.</p>
+                    <a href="{{ single.file }}" class="download-button">Преземи</a>
+                    <a href="{{ single.more_info }}" class="read-more">Повеќе</a>
+                </li>
+            {% else %}
+                <p class="nothing">Нема синглови за преземање.</p>
+            {% endfor %}
+        </ul>
+
+    </section>
+
+    <section class="second-col clearfix">
+
+        <h1 class="heading">Албуми</h1>
+
+        <p class="nothing">Нема албуми за преземање.</p>
+    </section>
+    <div class="clearboth"></div>
+</section>

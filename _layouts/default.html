@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="mk">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="{{ site.description }}"/>
+    <meta name="keywords" content="{{ site.keywords }}"/>
+    <meta name="author" content="{{ site.author }}"/>
+    <meta name="robots" content="index, follow"/>
+    <title>{{ page.title }} - Reggae.mk</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neucha&amp;subset=cyrillic,latin" type="text/css"/>
+    <link rel="stylesheet" href="{{ "/assets/style.css" | relative_url }}" type="text/css"/>
+    <!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    {% if page.layout == "post" %}
+        <meta property="og:title" content="{{ page.title }} - Reggae.mk"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:url" content="https://reggae.mk{{ page.url }}"/>
+        <meta property="og:image" content="https://reggae.mk/assets/img/posts/{{ page.image }}"/>
+        <meta property="og:site_name" content="Reggae.mk"/>
+        <meta property="og:description" content="{{ page.excerpt | strip_html | strip }}" />
+    {% endif %}
+</head>
+
+<body>
+
+<!--[if IE]><div class="ie"><![endif]-->
+<header id="header">
+    <div class="inner clearfix">
+        <a href="/" id="logo"><img src="/assets/img/logo.png" title="Reggae.mk" alt="Reggae.mk"/></a>
+
+        <nav>
+            <ul id="navigation">
+                <li><a href="/" id="homepage-link" class="green">Почетна</a></li>
+                <li><a href="/nastani" id="events-link" class="red">Настани</a></li>
+                <li><a href="/artisti" id="artists-link" class="yellow">Артисти</a></li>
+                <li><a href="/prezemanja" id="downloads-link" class="green">Преземања</a></li>
+                <li><a href="/galerija" id="gallery-link" class="red">Галерија</a></li>
+                <li><a href="/video" id="videos-link" class="yellow">Видео</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div id="wrapper">
+    <div class="multiple-bg">
+        <div class="inner">
+            <div class="stitches clearfix">
+                {% include sidebar.html %}
+
+                {{ content }}
+            </div> <!-- end of stitches -->
+
+            <footer id="footer">
+                <div class="multiple-bg">
+                    <div class="multiple-bg2 clearfix">
+                        <section id="about" class="footer-wide">
+                            <a href="/za-reggaemk" id="read-more-about" class="read-more">Прочитај повеќе<b class="arrow"></b></a>
+                            <h3>За Reggae.mk</h3>
+                            <p>Reggae.mk е портал на кој на македонските реге фанови редовно можат да се информираат за
+                                случувањата на светската и домашната реге сцена, да читаат рецензии на разни албуми, да добиваат информации за настапи
+                                и фестивали кај нас и околината итн. </p>
+                        </section>
+
+                        <section id="footer-nav" class="footer-mod">
+                            <ul>
+                                <li><a href="/za-reggaemk" id="about-link">За Reggae.mk</a></li>
+                                <li><a href="#" id="archives-link">Архивa</a></li>
+                                <li><a href="/media" id="media-link">Медиа</a></li>
+                                <li><a href="/kontakt" id="contact-link">Контакт</a></li>
+                            </ul>
+                        </section>
+
+                        <section id="site-info" class="footer-mod">
+                            <p id="copyright">© 2011-2012 Reggae.mk. <br/>Некои права задржани.</p>
+                            <p id="license">Содржината е лиценцирана под „<a href="http://creativecommons.org/licenses/by/2.5/mk/">Creative Commons Наведи извор 2.5</a>“ лиценца.</p>
+                            <p id="creators"><span class="green">Made</span> <span class="yellow">with</span> <span class="red">love</span> <span class="grey">by</span>
+                                <a href="http://ultim8.info/" class="ultim8">ultim8</a>
+                            </p>
+                        </section>
+
+                        <div class="clearboth"></div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<!--[if IE]></div><![endif]-->
+</body>
+
+</html>

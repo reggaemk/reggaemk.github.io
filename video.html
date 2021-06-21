@@ -1,0 +1,21 @@
+---
+permalink: /video
+layout: default
+title: "Видео"
+---
+
+<section id="content">
+    <h1 class="heading">{{ page.title }}</h1>
+
+    <ul id="videos" class="list-page">
+        {% assign videos = site.videos | sort: "v_id" | reverse %}
+        {% for video in videos %}
+            <li>
+                <a href="{{ video.url }}" title="{{ video.title }}">
+                    <img src="http://img.youtube.com/vi/{{ video.youtube_id }}/0.jpg" alt="{{ video.title }}" width="220"/>
+                    <h2>{{ video.title }}</h2>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</section>

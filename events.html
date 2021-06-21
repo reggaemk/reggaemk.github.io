@@ -1,0 +1,39 @@
+---
+permalink: /nastani
+layout: default
+title: "Настани"
+---
+
+<section id="content">
+
+    <h1 class="heading">Настани</h1>
+
+    {% assign current_date = site.time | date: "%Y-%m-%d" %}
+
+    <p class="nothing">Нема следни настани.</p>
+
+    <section id="past-events">
+        <h2>Изминати настани</h2>
+
+        <div class="row">
+        {% assign i = 0 %}
+        {% assign events = site.events | sort: "start_date" | reverse %}
+
+        {% for event in events %}
+            {% assign i = i | plus: 1 %}
+
+            <a href="{{ event.url }}">
+                <h3>{{ event.title }}</h3>
+                {% include formatted_date.html date=event.start_date class="date" %}
+            </a>
+
+            {% if i == 3 %}
+                {% assign i = 0 %}
+                </div>
+                <div class="row">
+            {% endif %}
+        {% endfor %}
+        </div>
+
+    </section>
+</section>

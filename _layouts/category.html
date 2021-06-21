@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<section id="content">
+    <h1 class="heading"><small>Преглед на категорија</small>{{ page.title }}</h1>
+
+    {% assign posts = site.posts | where: "category", page.title %}
+
+    {% for post in posts %}
+        {% include post_preview.html hide_category=true %}
+    {% endfor %}
+</section>

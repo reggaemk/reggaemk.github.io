@@ -1,0 +1,45 @@
+{% comment %}
+    Github Pages does not support custom plugins...
+{% endcomment %}
+
+{% assign day = include.date | date: "%d" %}
+{% assign month = include.date | date: "%B" %}
+{% assign year = include.date | date: "%Y" %}
+
+{% case month %}
+{% when "January" %}
+    {% assign month_loc = "Јануари" %}
+{% when "February" %}
+    {% assign month_loc = "Февруари" %}
+{% when "March" %}
+    {% assign month_loc = "Март" %}
+{% when "April" %}
+    {% assign month_loc = "Април" %}
+{% when "May" %}
+    {% assign month_loc = "Мај" %}
+{% when "June" %}
+    {% assign month_loc = "Јуни" %}
+{% when "July" %}
+    {% assign month_loc = "Јули" %}
+{% when "August" %}
+    {% assign month_loc = "Август" %}
+{% when "September" %}
+    {% assign month_loc = "Септември" %}
+{% when "October" %}
+    {% assign month_loc = "Октомври" %}
+{% when "November" %}
+    {% assign month_loc = "Ноември" %}
+{% when "December" %}
+    {% assign month_loc = "Декември" %}
+{% endcase %}
+
+{% assign formatted_date = day | append: " " | append: month_loc | append: " " | append: year %}
+
+<time datetime="{{ include.date }}"
+      {% if include.class %}
+        class="{{ include.class }}"
+      {% endif %}
+      {% if include.additional_attributes %}
+        {{ include.additional_attributes }}="{{ include.additional_attributes }}"
+      {% endif %}
+>{{ formatted_date }}</time>

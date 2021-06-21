@@ -1,0 +1,8 @@
+<section id="categories-module" class="module">
+    <h3>Категории</h3>
+    <ul class="categories-list">
+        {% for category in site.categories %}
+            <li><a href="{{ category.url }}">{{ category.title }}</a></li>
+        {% endfor %}
+    </ul>
+</section>

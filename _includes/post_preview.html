@@ -1,0 +1,21 @@
+{% assign hide_category = include.hide_category || false %}
+
+<article class="post">
+    <a href="{{ post.url }}" class="block">
+        <h2>{{ post.title }}</h2>
+        <img src="/assets/img/posts/{{ post.image }}" width="330" height="141" alt="{{ post.title }}" class="post-img"/>
+    </a>
+    <p class="info">
+        {% include formatted_date.html date=post.date class="date-published" additional_attributes="pubdate" %}
+        <span class="author">{{ post.author }}</span>
+
+        {% unless hide_category %}
+            {% assign category = site.categories | where: "title", post.category | first %}
+            <a href="{{ category.url }}" class="category"><b class="arrow"></b>{{ category.title }}</a>
+        {% endunless %}
+    </p>
+    <div class="text">
+        <p>{{ post.excerpt }}</p>
+    </div>
+    <a href="{{ post.url }}" class="read-more">Прочитај повеќе<b class="arrow"></b></a>
+</article>
